@@ -19,11 +19,11 @@ def currentTemp():
         if audio_file.content_type != 'audio/wav' and audio_file.content_type not in ('audio/mpeg', 'audio/mp3'):            
             return redirect(url_for('home'))
         if audio_file.content_type not in ('audio/mpeg', 'audio/mp3'):         
-            convertedText = RussianText.russianTextFromSpeech(audio_file)            
+            convertedText = RussianText.germanTextFromSpeech(audio_file)            
         else:
             audio = AudioSegment.from_file(audio_file)
             wavFile = audio.export('output.wav', format='wav')
-            convertedText = RussianText.russianTextFromSpeech(wavFile)
+            convertedText = RussianText.germanTextFromSpeech(wavFile)
         if convertedText[0] != False:            
             return redirect(url_for('home'))
         return render_template('index.html', convertedText=convertedText[1])
