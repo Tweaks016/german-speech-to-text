@@ -1,5 +1,5 @@
 '''
-Text Conversion from russian speech to text.....
+Text Conversion from german speech to text.....
 '''
 def GermanTextFromSpeech(wav_file):
     text_generated = ''
