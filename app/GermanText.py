@@ -1,7 +1,7 @@
 '''
 Text Conversion from russian speech to text.....
 '''
-def russianTextFromSpeech(wav_file):
+def GermanTextFromSpeech(wav_file):
     text_generated = ''
     try:
         import speech_recognition as sr
@@ -14,7 +14,7 @@ def russianTextFromSpeech(wav_file):
         with sr.AudioFile(wav_file) as source:
             audio_text = r.listen(source)
             try:
-                text = r.recognize_google(audio_text, language="ru-RU")
+                text = r.recognize_google(audio_text, language="de-DE")
                 # print('[+] -> ', text)
                 text_generated = text
                 return False, text_generated
