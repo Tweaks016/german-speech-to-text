@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, render_template_string
-from app import RussianText
+from app import GermanText
 from pydub import AudioSegment
 
 app = Flask(__name__)
@@ -19,11 +19,11 @@ def currentTemp():
         if audio_file.content_type != 'audio/wav' and audio_file.content_type not in ('audio/mpeg', 'audio/mp3'):            
             return redirect(url_for('home'))
         if audio_file.content_type not in ('audio/mpeg', 'audio/mp3'):         
-            convertedText = RussianText.germanTextFromSpeech(audio_file)            
+            convertedText = GermanText.germanTextFromSpeech(audio_file)            
         else:
             audio = AudioSegment.from_file(audio_file)
             wavFile = audio.export('output.wav', format='wav')
-            convertedText = RussianText.germanTextFromSpeech(wavFile)
+            convertedText = GermanText.germanTextFromSpeech(wavFile)
         if convertedText[0] != False:            
             return redirect(url_for('home'))
         return render_template('index.html', convertedText=convertedText[1])
