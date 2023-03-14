@@ -5,8 +5,6 @@ from keras.layers import (BatchNormalization, Conv1D, Dense, Input,
 
 def cnn_rnn_model(input_dim, filters, kernel_size, conv_stride,
     conv_border_mode, units, output_dim=29):
-    """ Build a recurrent + convolutional network for speech 
-    """
     # Main acoustic input
     input_data = Input(name='the_input', shape=(None, input_dim))
     # Add convolutional layer
